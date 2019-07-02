@@ -6,8 +6,8 @@ echo "Git client did not installed"
 fi
 
 # Configure git
-curl -L https://bootstrap.saltstack.com -o install_salt.sh 
-sh /root/install_salt.sh -M
+curl -L https://bootstrap.saltstack.com -o /tmp/install_salt.sh 
+sh /tmp/install_salt.sh -M
 git clone https://github.com/Mahilinux/srv.git
 mv /root/srv/* /srv
 rm -rf /root/srv
