@@ -35,7 +35,7 @@ echo "Enter No of disks attached"
 read disks
 
 if [ $fresult != "$disks" ]; then
-echo "The result is not maching with: No of Entered disks entered, No of Scanned disks and No of Free/Available disks"
+echo "The result is not maching with: No of disks Entered, No of Scanned disks and No of Free/Available disks"
 echo "Ensure the attached disks are available for partitioning"
 exit
 else
