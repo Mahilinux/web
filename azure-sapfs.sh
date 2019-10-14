@@ -115,7 +115,7 @@ for i in `cat /tmp/ftab`; do mkfs.xfs $i; done
 mkdir /hana /hana/shared /hana/data /hana/backup /hana/log
 
 # Make permanent mountpoints
-if [ $(grep hana /etc/fstab| wc -2) -gt 0 ]; then
+if [ $(grep hana /etc/fstab| wc -l) -gt 0 ]; then
 echo "It seems file exports were already exists"
 else
 echo "Exporting Hana File Systems"
