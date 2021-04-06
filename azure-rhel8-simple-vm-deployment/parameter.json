@@ -6,10 +6,10 @@
       "value": "westus2"
     },
     "virtualMachineName": {
-      "value": "uswdlmdmapp08"
+      "value": "uswdlmdmapp09"
     },
     "networkInterfaceName": {
-      "value": "uswdlmdmapp08-nic01"
+      "value": "uswdlmdmapp09-nic01"
     },
     "enableAcceleratedNetworking": {
       "value": true
