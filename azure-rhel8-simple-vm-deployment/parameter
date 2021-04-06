@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "westus2"
+    },
+    "virtualMachineName": {
+      "value": "uswdlmdmapp08"
+    },
+    "networkInterfaceName": {
+      "value": "uswdlmdmapp08-nic01"
+    },
+    "enableAcceleratedNetworking": {
+      "value": true
+    },
+    "subnetName": {
+      "value": "sa-wus2-subprod-corp-mdmapp-snet"
+    },
+    "virtualNetworkId": {
+      "value": "/subscriptions/6d0b6e36-551f-4057-aff1-ca97e9cc87de/resourceGroups/sa-wus2-subprod-net-rg/providers/Microsoft.Network/virtualNetworks/sa-wus2-corp-vnet"
+    },
+    "osDiskType": {
+      "value": "Premium_LRS"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_D4s_v3"
+    },
+    "adminUsername": {
+      "value": "itadmin"
+    },
+    "adminPassword": {
+      "value": "W3lcome2Snow!@#$"
+    },
+    "diagnosticsStorageAccountName": {
+      "value": "sawus2cmpvmdiag01stor"
+    },
+    "diagnosticsStorageAccountId": {
+      "value": "/subscriptions/6d0b6e36-551f-4057-aff1-ca97e9cc87de/resourceGroups/sa-wus2-subprod-cloudmgmtstorage-rg/providers/Microsoft.Storage/storageAccounts/sawus2cmpvmdiag01stor"
+    },
+    "Technical Owner": {
+      "value": "Dinesh Kumar"
+    },
+    "Business Owner": {
+      "value": "Vipul Agochiya"
+    },
+    "Business Service": {
+      "value": "BI & MDM Services"
+    },
+    "Cost Center": {
+      "value": "5430"
+    },
+    "Department": {
+      "value": "IT Transparency"
+    },
+    "Environment": {
+      "value": "Development"
+    },
+    "Subscription": {
+      "value": "IT Corp - SubProd Apps (SA)"
+    },
+    "Application": {
+      "value": "Informatica MDM"
+    },
+    "Short Description": {
+      "value": "MDM App Server"
+    }
+  }
+}
