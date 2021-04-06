@@ -3,16 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "String",
             "defaultValue": "westus2",
+            "type": "String",
             "metadata": {
                 "description": "westus2 or eastus2."
             }
         },
         "virtualMachineName": {
-            "type": "String"
-        },
-        "virtualMachineComputerName": {
             "type": "String"
         },
         "networkInterfaceName": {
@@ -51,6 +48,39 @@
         },
         "diagnosticsStorageAccountId": {
             "type": "String"
+        },
+        "Technical Owner": {
+            "type": "String"
+        },
+        "Business Owner": {
+            "type": "String"
+        },
+        "Business Service": {
+            "type": "String"
+        },
+        "Cost Center": {
+            "type": "String"
+        },
+        "Department": {
+            "type": "String"
+        },
+        "Environment": {
+            "allowedValues": [
+                "Production",
+                "Development",
+                "Staging",
+                "Testing"
+            ],
+            "type": "String"
+        },
+        "Subscription": {
+            "type": "String"
+        },
+        "Application": {
+            "type": "String"
+        },
+        "Short Description": {
+            "type": "String"
         }
     },
     "variables": {
@@ -87,6 +117,17 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
             ],
+            "tags": {
+                "Technical Owner": "[parameters('Technical Owner')]",
+                "Business Owner": "[parameters('Business Owner')]",
+                "Business Service": "[parameters('Business Service')]",
+                "Cost Center": "[parameters('Cost Center')]",
+                "Department": "[parameters('Department')]",
+                "Environment": "[parameters('Environment')]",
+                "Subscription": "[parameters('Subscription')]",
+                "Application": "[parameters('Application')]",
+                "Short Description": "[parameters('Short Description')]"
+            },
             "plan": {
                 "name": "rhel-lvm82",
                 "publisher": "redhat",
@@ -115,7 +156,7 @@
                     ]
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachineComputerName')]",
+                    "computerName": "[parameters('virtualMachineName')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
