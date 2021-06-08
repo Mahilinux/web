@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "galleries_SNowImageGallery_name": {
+            "defaultValue": "SNowImageGallery",
+            "type": "String"
+        },
+        "images_ps_wus2_win2016_img_externalid": {
+            "defaultValue": "/subscriptions/299ede07-ce17-4daf-bb64-a2fb268f52b7/resourceGroups/ps-wus2-prod-images-rg/providers/Microsoft.Compute/images/ps-wus2-win2016-img",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/galleries/images",
+            "apiVersion": "2020-09-30",
+            "name": "[concat(parameters('galleries_SNowImageGallery_name'), '/ps-wus2-win2016-imgdef')]",
+            "location": "westus2",
+            "properties": {
+                "hyperVGeneration": "V1",
+                "osType": "Windows",
+                "osState": "Generalized",
+                "identifier": {
+                    "publisher": "ServiceNow",
+                    "offer": "WindowsServer",
+                    "sku": "2016-Datacenter"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/galleries/images/versions",
+            "apiVersion": "2020-09-30",
+            "name": "[concat(parameters('galleries_SNowImageGallery_name'), '/ps-wus2-win2016-imgdef/1.0.0')]",
+            "location": "westus2",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/galleries/images', parameters('galleries_SNowImageGallery_name'), 'ps-wus2-win2016-imgdef')]"
+            ],
+            "properties": {
+                "publishingProfile": {
+                    "targetRegions": [
+                        {
+                            "name": "West US 2",
+                            "regionalReplicaCount": 1,
+                            "storageAccountType": "Standard_LRS"
+                        },
+                        {
+                            "name": "East US 2",
+                            "regionalReplicaCount": 1,
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    ],
+                    "replicaCount": 1,
+                    "excludeFromLatest": false,
+                    "endOfLifeDate": "2029-01-01T00:00:00+00:00",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "storageProfile": {
+                    "source": {
+                        "id": "[parameters('images_ps_wus2_win2016_img_externalid')]"
+                    },
+                    "osDiskImage": {
+                        "hostCaching": "None",
+                        "source": {}
+                    }
+                }
+            }
+        }
+    ]
+}
