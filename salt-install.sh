@@ -11,6 +11,15 @@ yum -y install salt-minion >/dev/null
 # restart and enable the services
 systemctl --now enable salt-minion > /dev/null
 
+# fix resolv.conf issue
+cat >/etc/resolv.conf <<EOL
+search corp.service-now.com reddog.microsoft.com
+nameserver 10.230.4.50
+nameserver 10.15.10.49
+EOL
+
+# chattr +i /etc/resolv.conf
+
 # set the grains
 salt-call grains.setval servicenow "{'env': 'Test', 'region': 'Americas', 'manual': 'No'}"
 
