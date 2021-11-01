@@ -24,7 +24,7 @@ EOL
 salt-call grains.setval servicenow "{'env': 'Test', 'region': 'Americas', 'manual': 'No'}"
 
 # run the minion jobs
-salt-call state.highstate > /dev/null
-salt-call state.highstate >/dev/null
+salt-call state.sls modules.ansible > /dev/null
+salt-call state.sls modules.sudoers >/dev/null
 
 echo "Salt-Minion has been successfully installed"
