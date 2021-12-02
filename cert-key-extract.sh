@@ -5,10 +5,10 @@
 
 # unzip the certificate
 rm -rf /tmp/certs
-unzip /tmp/wc.corp.service-now.com.zip -d /tmp/certs
+unzip /tmp/wc.example.com.zip -d /tmp/certs
 
 # Get the certificate and password from Thycotic
-pfx_file=/tmp/certs/wc.corp.service-now.com.pfx
+pfx_file=/tmp/certs/wc.example.pfx
 pfx_pass_in='xxxxxxx'
 pfx_pass_out='abc123'
 
