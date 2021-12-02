@@ -1,7 +1,6 @@
 #!/bin/bash
 yum install git curl -y >/dev/null 2&>1
-RTCD=`echo $?`
-if [ $RTCD != 0 ]; then
+if [ $? != 0 ]; then
 echo "Git client did not installed"
 fi
 
