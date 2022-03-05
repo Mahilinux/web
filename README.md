@@ -5,8 +5,10 @@ shell scripts for remote clone.
 
 Ref - https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories
 
+ex: git remote set-url origin "https://github-username@github.com/github-username/github-repository-name.git"
+
 $ git remote set-url origin "https://mahi-linux@github.com/mahi-linux/ansi.git" (or)
 
-$ git remote set-url origin "https://mahi-linux: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@github.com/mahi-linux/ansi.git"
+$ git remote set-url origin "https://mahi-linux:xxxxxxxxxxxx@github.com/mahi-linux/ansi.git"
 
 $ git config -l
