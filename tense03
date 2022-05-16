@@ -1,0 +1,97 @@
+{
+    "name": "uswpltenns03",
+    "id": "/subscriptions/71e0462a-5b2b-4ddf-873e-b98d31601c78/resourceGroups/pa-wus2-prod-cloudmgmt-rg/providers/Microsoft.Compute/virtualMachines/uswpltenns03",
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "westus2",
+    "tags": {
+        "Application": "Nessus Scanner",
+        "Business Service": "Security",
+        "Business Owner": "Madhuri Manikonda",
+        "Technical Owner": "Madhuri Manikonda",
+        "Subscription": "PA",
+        "Short Description": "Tenable Nessus Scanner",
+        "Environment": "Prod",
+        "Cost Center": "5400",
+        "Department": "IT Security Engineering"
+    },
+    "plan": {
+        "name": "rhel-lvm82",
+        "publisher": "redhat",
+        "product": "rhel-byos"
+    },
+    "properties": {
+        "vmId": "a10c585e-4d31-4873-8dd5-195eeb163b6f",
+        "hardwareProfile": {
+            "vmSize": "Standard_D4s_v3"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "id": "/subscriptions/299ede07-ce17-4daf-bb64-a2fb268f52b7/resourceGroups/ps-wus2-prod-snowimagegallery-rg/providers/Microsoft.Compute/galleries/SNowImageGallery/images/ss-wus2-rhel82-img-imgdef"
+            },
+            "osDisk": {
+                "osType": "Linux",
+                "name": "uswpltenns03_osdisk",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS",
+                    "id": "/subscriptions/71e0462a-5b2b-4ddf-873e-b98d31601c78/resourceGroups/pa-wus2-prod-cloudmgmt-rg/providers/Microsoft.Compute/disks/uswpltenns03_OsDisk_1_a32b97a48b7e4530a295232756287c8f"
+                },
+                "diskSizeGB": 64
+            },
+            "dataDisks": [
+                {
+                    "lun": 0,
+                    "name": "uswpltenns03-opt1",
+                    "createOption": "Attach",
+                    "caching": "None",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                        "id": "/subscriptions/71e0462a-5b2b-4ddf-873e-b98d31601c78/resourceGroups/pa-wus2-prod-cloudmgmt-rg/providers/Microsoft.Compute/disks/uswpltenns03-opt1"
+                    },
+                    "diskSizeGB": 64
+                }
+            ]
+        },
+        "osProfile": {
+            "computerName": "uswpltenns03",
+            "adminUsername": "itadmin",
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": false
+            },
+            "secrets": []
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/71e0462a-5b2b-4ddf-873e-b98d31601c78/resourceGroups/pa-wus2-prod-cloudmgmt-rg/providers/Microsoft.Network/networkInterfaces/uswpltenns03-nic01"
+                }
+            ]
+        },
+        "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": true,
+                "storageUri": "https://pawus2cmpvmdiag01stor.blob.core.windows.net/"
+            }
+        },
+        "provisioningState": "Succeeded"
+    },
+    "resources": [
+        {
+            "name": "OmsAgentForLinux",
+            "id": "/subscriptions/71e0462a-5b2b-4ddf-873e-b98d31601c78/resourceGroups/pa-wus2-prod-cloudmgmt-rg/providers/Microsoft.Compute/virtualMachines/uswpltenns03/extensions/OmsAgentForLinux",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "westus2",
+            "properties": {
+                "autoUpgradeMinorVersion": true,
+                "provisioningState": "Succeeded",
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "OmsAgentForLinux",
+                "typeHandlerVersion": "1.0",
+                "settings": {
+                    "workspaceId": "68397421-7eed-45e8-9b50-8991ef09a55f"
+                }
+            }
+        }
+    ]
+}
